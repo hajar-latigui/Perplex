@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Perplex.Models.Suggestion>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<form method="get">
+    <div class="form-group">
+        <label for="type">Filter by Type:</label>
+        <select id="type" name="type" class="form-control">
+            <option value="">All</option>
+            <option value="uitje"> Uitje </option>
+            <option value="suggestie"> Suggestie</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Filter</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Onderwerp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Beschrijving)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BeginDatum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EindDatum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categories)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Duur)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Onderwerp)
+            </td>
+            <td>
+                @Html.Raw(item.Beschrijving)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BeginDatum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EindDatum)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Categories)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Duur)
+                </td>
+        </tr>
+}
+    </tbody>
+</table>
